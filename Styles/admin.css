@@ -28,3 +28,8 @@ body {
 .modal-footer {
     background-color: var(--color-modal);
 }
+
+.table-description {
+    max-width: 400px;
+    min-width: 200px;
+}

@@ -10,6 +10,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "Residen Evil 4",
@@ -22,6 +23,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "Fifa 23",
@@ -34,6 +36,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "NBA 2k 24",
@@ -46,6 +49,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "Silent Hill 2",
@@ -58,6 +62,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "GTA 5",
@@ -70,6 +75,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "Assassin's Creed Mirage",
@@ -82,6 +88,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
   {
       gamename : "God of War: Ragnarök",
@@ -94,6 +101,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
+      price: 2000,
   },
 ]
 
@@ -113,6 +121,10 @@ const newGame = {
   recomendedd : false,
   img: "",
   urlvideo: "",
+  date: "",
+  author: "",
+  company: "",
+  price: "",
 }
 
 
@@ -174,6 +186,13 @@ const handleChange = (event) => {
           newGame.company = event.target.value;
         }
         break;
+      case 'gamePrice':
+        if (!regexGamenumber.test(event.target.value)) {
+          alert("ponele un precio al juego");
+        } else {
+          newGame.price = event.target.value;
+        }
+        break;
     }
 }
 
@@ -197,12 +216,11 @@ const handleSubmit = (event) => {
 
 
 games.map((game, index) => {
-  console.log(game.public)
     tableContainer.innerHTML += `
     <tr><th scope="row" class="color-table text-white">${index}</th>
     <td class="color-table text-white">${game.gamename}</td>
     <td class="color-table text-white">${game.category}</td>
-    <td class="color-table text-white">${game.description}</td>
+    <td class="color-table text-white table-description">${game.description}</td>
     <td class="color-table text-white">
      <div class="form-check">
      <input class="form-check-input" type="checkbox" value="" onchange="handleClick(${index}, event)" id="checkPublick${index}" ${game.public ? 'checked' : ''}>
@@ -212,14 +230,14 @@ games.map((game, index) => {
     </div>
     </td>
     <td class="color-table text-white">
-    <a href="#" id="configGame${index}"><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#configModal${index}"></i></a>
-    <a href="#" id="deleteGame${index}" onlclick="deleteGame(index)"><i class="bi bi-trash"></i></a>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1${index}" onchange="clickRecomended(${index}, event)" ${game.recomendedd ? 'checked' : ''}>
-      <label class="form-check-label" for="flexRadioDefault1${index}">
-        Recomendado
-      </label>
-    </div>
+     <div class="d-flex gap-2">
+      <a href="#" class="btn btn-outline-primary" role="button"><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#configModal${index}"></i></a>
+      <a class="btn btn-outline-primary" href="#" role="button" onclick="deleteGame(${index})"><i class="bi bi-trash"></i></a>
+      <div class="form-check p-0 m-0">
+       <input type="radio" class="btn-check" name="options" id="option1${index}" autocomplete="off" onchange="clickRecomended(${index}, event)" ${game.recomendedd ? 'checked' : ''}>
+        <label class="btn btn-outline-primary" for="option1${index}"><i class="bi bi-star-fill"></i></label>
+      </div>
+     </div>
     </td>
     </tr>
     <div class="modal fade border border-0" id="configModal${index}" tabindex="-1" aria-labelledby="configModalLabel${index}" aria-hidden="true">
@@ -230,32 +248,31 @@ games.map((game, index) => {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body rounded-bottom">
-              <form onsubmit="configSubmit(event)">
+              <form onsubmit="configSubmit()">
                   <div class="mb-3">
                       <label for="configGameName${index}" class="form-label">Cambiar Nombre del Juego</label>
-                      <input type="text" class="form-control" id="configGameName${index}" maxlength="30" minlength="2" required onchange="configGamesVerify(event)">
+                      <input type="text" class="form-control" id="configGameName${index}" maxlength="30" minlength="2" required onchange="configGamesVerify(event)" value="${game.gamename}">
                       <label class="form-label" for="configGameCategory${index}">Cambia la Categoria</label>
-                      <select class="form-select" id="configGameCategory${index}" required onchange="configGamesVerify(event)">
+                      <select class="form-select" id="configGameCategory${index}" required onchange="configGamesVerify(event)" value="${game.category}">
                         <option selected>Seleccione una Categoria</option>
-                        <option value="1">Estrategia</option>
-                        <option value="2">Disparos</option>
-                        <option value="3">Deportes</option>
-                        <option value="4">Terror</option>
+                        <option value="Estrategia">Estrategia</option>
+                        <option value="Disparos">Disparos</option>
+                        <option value="Deportes">Deportes</option>
+                        <option value="Terror">Terror</option>
                       </select>
                       <label for="configGameImg${index}" class="form-label">Cambia la Url de imagen</label>
-                      <input type="text" class="form-control" id="configGameImg${index}" minlength="14" maxlength="300" required onchange="configGamesVerify(event)">
+                      <input type="text" class="form-control" id="configGameImg${index}" minlength="14" maxlength="300" required onchange="configGamesVerify(event)" value="${game.img}">
                       <label for="configGameVid${index}" class="form-label">Cambia la Url de video</label>
-                      <input type="text" class="form-control" id="configGameVid${index}" minlength="14" maxlength="300" required onchange="configGamesVerify(event)">
-                      <label for="gameDate" class="form-label">Año de lanzamiento</label>
-                      <input type="number" class="form-control" id="gameDate" minlength="4" maxlength="4" required onchange="configGamesVerify(event)">
-                      <label for="gameAuthor" class="form-label">Nombre del Autor</label>
-                      <input type="text" class="form-control" id="gameAuthor" minlength="2" maxlength="32" required onchange="configGamesVerify(event)">
-                      <label for="gameCompany" class="form-label">Nombre de la Compania</label>
-                      <input type="text" class="form-control" id="gameCompany" minlength="1" maxlength="70" required onchange="configGamesVerify(event)">
-                      <label for="gameDescription">Descripcion del Juego</label>
+                      <input type="text" class="form-control" id="configGameVid${index}" minlength="14" maxlength="300" required onchange="configGamesVerify(event)" value="${game.urlvideo}">
+                      <label for="configGameDate${index}" class="form-label">Año de lanzamiento</label>
+                      <input type="number" class="form-control" id="configGameDate${index}" minlength="4" maxlength="4" required onchange="configGamesVerify(event)" value="${game.date}">
+                      <label for="configGameAuthor${index}" class="form-label">Nombre del Autor</label>
+                      <input type="text" class="form-control" id="configGameAuthor${index}" minlength="2" maxlength="32" required onchange="configGamesVerify(event)" value="${game.author}">
+                      <label for="configGameCompany${index}" class="form-label">Nombre de la Compania</label>
+                      <input type="text" class="form-control" id="configGameCompany${index}" minlength="1" maxlength="70" required onchange="configGamesVerify(event)" value="${game.company}">
                       <label for="configGameDescription${index}">Cambia la Descripcion del Juego</label>
                       <div class="form-floating">
-                          <textarea class="form-control" placeholder="Escribi la descricpion del juego" id="configGameDescription${index}" maxlength="200" minlength="20" requironchange="configGamesVerify(event)"></textarea>
+                          <textarea class="form-control" id="configGameDescription${index}" maxlength="200" minlength="20" requironchange="configGamesVerify(event)">${game.description}</textarea>
                       </div>
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -272,22 +289,14 @@ games.map((game, index) => {
 )
 
 const handleClick = (index, event) => {
+  event.preventDefault();
   if (event.target.checked) {
     games[index].public = true 
-  } else {
-    games[index].public = false
-  }
-  event.preventDefault();
-  const saveGame = JSON.parse(localStorage.getItem('storagegame'));
-  console.log(saveGame)
-  if (saveGame) {
-    saveGame.push(newGame);
-    const jsonGame = JSON.stringify(saveGame)
+    const jsonGame = JSON.stringify(games)
     localStorage.setItem('storagegame', jsonGame)
   } else {
-    let storagegame = games;
-    storagegame.push(newGame);
-    const jsonGame = JSON.stringify(storagegame)
+    games[index].public = false
+    const jsonGame = JSON.stringify(games)
     localStorage.setItem('storagegame', jsonGame)
   }
 }
@@ -297,37 +306,16 @@ const clickRecomended = (index, event) => {
     game.recomendedd = false
   })
   games[index].recomendedd = true
-  event.preventDefault();
-  const saveGame = JSON.parse(localStorage.getItem('storagegame'));
-  console.log(saveGame)
-  if (saveGame) {
-    saveGame.push(newGame);
-    const jsonGame = JSON.stringify(saveGame)
-    localStorage.setItem('storagegame', jsonGame)
-  } else {
-    let storagegame = games;
-    storagegame.push(newGame);
-    const jsonGame = JSON.stringify(storagegame)
-    localStorage.setItem('storagegame', jsonGame)
-  }
+  const jsonGame = JSON.stringify(games)
+  localStorage.setItem('storagegame', jsonGame)
 }
 
-const deleteGame = (index, event) => {
-    games.splice(index, 1);
-  const saveGame = JSON.parse(localStorage.getItem('storagegame'));
-  console.log(saveGame)
-  if (saveGame) {
-    saveGame.push(newGame);
+const deleteGame = (index) => {
+  const saveGame = JSON.parse(localStorage.getItem('storagegame')) || games;
+    saveGame.splice(index, 1);
     const jsonGame = JSON.stringify(saveGame)
     localStorage.setItem('storagegame', jsonGame)
     window.location.reload()
-  } else {
-    let storagegame = games;
-    storagegame.push(newGame);
-    const jsonGame = JSON.stringify(storagegame)
-    localStorage.setItem('storagegame', jsonGame)
-    window.location.reload()
-  }
 }
 
 const configGamesVerify = (event) => {
@@ -337,7 +325,7 @@ const configGamesVerify = (event) => {
       if (!regexGameName.test(event.target.value)) {
         alert("El nombre del juego no debe contener caracteres especiales");
       } else {
-        games[`${index}`].gamename = event.target.value;
+        games[parseInt(`${index}`)].gamename = event.target.value;
       }
       break;
     case `configGameCategory${index}`:
@@ -370,20 +358,9 @@ const configGamesVerify = (event) => {
   }
 }
 
-const configSubmit = (event) => {
-  event.preventDefault();
-  const saveGame = JSON.parse(localStorage.getItem('storagegame'));
-  console.log(saveGame)
-  if (saveGame) {
-    saveGame.push(newGame);
-    const jsonGame = JSON.stringify(saveGame)
-    localStorage.setItem('storagegame', jsonGame)
-    window.location.reload()
-  } else {
-    let storagegame = games;
-    storagegame.push(newGame);
-    const jsonGame = JSON.stringify(storagegame)
-    localStorage.setItem('storagegame', jsonGame)
-    window.location.reload()
-  }
+const configSubmit = () => {
+  const saveGame = JSON.parse(localStorage.getItem('storagegame')) || games;
+  const jsonGame = JSON.stringify(saveGame)
+  localStorage.setItem('storagegame', jsonGame)
+  window.location.reload()
 }

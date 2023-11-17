@@ -33,10 +33,10 @@
                             <label class="form-label" for="gameCategory">Categoria</label>
                             <select class="form-select" id="gameCategory" required onchange="handleChange(event)">
                               <option selected>Seleccione una Categoria</option>
-                              <option value="1">Estrategia</option>
-                              <option value="2">Disparos</option>
-                              <option value="3">Deportes</option>
-                              <option value="4">Terror</option>
+                              <option value="Estrategia">Estrategia</option>
+                              <option value="Disparos">Disparos</option>
+                              <option value="Deportes">Deportes</option>
+                              <option value="Terror">Terror</option>
                             </select>
                             <label for="gameImg" class="form-label">Url de imagen</label>
                             <input type="text" class="form-control" id="gameImg" minlength="14" maxlength="300" required onchange="handleChange(event)">
@@ -44,6 +44,8 @@
                             <input type="text" class="form-control" id="gameVid" minlength="14" maxlength="300" required onchange="handleChange(event)">
                             <label for="gameDate" class="form-label">Año de lanzamiento</label>
                             <input type="number" class="form-control" id="gameDate" minlength="4" maxlength="4" required onchange="handleChange(event)">
+                            <label for="gamePrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="gamePrice" minlength="1" maxlength="14" required onchange="handleChange(event)">
                             <label for="gameAuthor" class="form-label">Nombre del Autor</label>
                             <input type="text" class="form-control" id="gameAuthor" minlength="2" maxlength="32" required onchange="handleChange(event)">
                             <label for="gameCompany" class="form-label">Nombre de la Compania</label>
