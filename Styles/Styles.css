@@ -1,3 +1,43 @@
+:root{
+    --color-navbar: #2f0064;
+    --color-footer: #100422;
+    --color-1:#7937ab;
+    --color-2:#672999;
+    --color-3:#541c88;
+    --color-4:#420e76;
+    --color-5: #2f0064;
+    --color-1-1: #421173 ;
+    --color-1-2: #310c58 ;
+    --color-1-3:#000007;
+
+}
+
+.navbar{
+    height: 100px;
+    background: var(--color-navbar);
+   
+    
+}
+.navbaricons{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.navbar-toggler{
+   background-color: rgba(240, 248, 255, 0.947);
+   margin-right: 10px;
+}
+.dropdown-nav{
+    background-color: var(--color-navbar);
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.text-nav{
+    color: white;
+}
+
+
 body {
     display: flex;
     justify-content: center;
