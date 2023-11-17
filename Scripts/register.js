@@ -111,3 +111,17 @@ const handleChange = (event) => {
     }
 }
 
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const saveUsers = JSON.parse(localStorage.getItem('users'));
+  if (saveUsers) {
+    saveUsers.push(user);
+    const jsonUsers = JSON.stringify(saveUsers)
+    localStorage.setItem('users,jsonUsers')
+  } else {
+    let users = [];
+    users.push(user);
+    const jsonUsers = JSON.stringify(users)
+    localStorage.setItem('users',jsonUsers)
+  }
+}
