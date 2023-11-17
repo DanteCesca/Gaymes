@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(../Assets/img/Lol\ found.jpg)no-repeat;
+    background-size: cover;
+}
+
+.form-bg {
+    padding-top: 80px;
+    width: 500px;
+    height: 780px;
+    border-radius: 2%;
+    background-color: white;
+}
+
+.letter-color {
+    color: black;
+}
+
+@media (min-width:400px) {
+    .form-bg {
+        padding-top: 10px;
+    }
+}
+
+@media (min-width:1080px) {
+    .form-bg {
+        padding-top: 60px;
+    }
+}
