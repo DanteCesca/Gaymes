@@ -64,3 +64,11 @@ body {
 h2 {
     color: blanchedalmond;
 }
+
+.recomended-container {
+    background-color: var(--color-1-3);
+}
+
+.Video-Recomended {
+    height: 50vh;
+}

@@ -56,9 +56,9 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
         category : "Terror",
         description : "Silent Hill 2 es un videojuego de terror del subgénero de horror de supervivencia, desarrollado por Team Silent y publicado por Konami. Fue lanzado para PlayStation 2 en los Estados Unidos el 24 de septiembre de 2001, tres días después, en Japón, y el 23 de noviembre del mismo año, en Europa",
         public : false,
-        recomendedd : false,
+        recomendedd : true,
         img : "./Assets/img/silenthill2.jpg",
-        urlvideo : "https://www.youtube.com/watch?v=Bia8hhHszSw",
+        urlvideo : "https://www.youtube.com/embed/Bia8hhHszSw?si=OSSacs8v6vl7e2xd",
         date:"2017",
         author:"pepehonguito",
         company:"Aceituna Negra",
@@ -159,3 +159,30 @@ games.map((game) => {
  }
 })
 
+const gameVidRecomended = document.getElementById('RecomendedVid')
+const gameImgRecomended = document.getElementById('RecomendedImg')
+const gameDescRecomended = document.getElementById('RecomendedDesc')
+
+games.map((game) => {
+    if (game.recomendedd == true) {
+        gameVidRecomended.innerHTML +=`
+       <iframe class="Video-Recomended container-fluid" src="${game.urlvideo}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+       `
+    }
+})
+
+games.map((game) => {
+    if (game.recomendedd == true) {
+        gameImgRecomended.innerHTML +=`
+        <img class="img-fluid" src="${game.img}" alt="imagen de ${game.gamename}">
+       `
+    }
+})
+
+games.map((game) => {
+    if (game.recomendedd == true) {
+        gameDescRecomended.innerHTML +=`
+        <p>${game.description}</p>
+       `
+    }
+})
