@@ -25,7 +25,7 @@
     margin-left: 10px;
 }
 .navbar-toggler{
-   background-color: rgba(240, 248, 255, 0.947);
+   background-color: rgba(191, 199, 206, 0.947);
    margin-right: 10px;
 }
 .dropdown-nav{
@@ -38,11 +38,11 @@
 }
 
 
-body {
+ /* body { 
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: url(../Assets/img/GTA\ V.jpg)no-repeat;
     background-size: cover;
-}
+} */
