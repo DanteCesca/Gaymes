@@ -164,7 +164,7 @@ const gameImgRecomended = document.getElementById('RecomendedImg')
 const gameDescRecomended = document.getElementById('RecomendedDesc')
 
 games.map((game) => {
-    if (game.recomendedd == true) {
+    if (game.recomendedd == true && game.public == true) {
         gameVidRecomended.innerHTML +=`
        <iframe class="Video-Recomended container-fluid" src="${game.urlvideo}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
        `
@@ -172,7 +172,7 @@ games.map((game) => {
 })
 
 games.map((game) => {
-    if (game.recomendedd == true) {
+    if (game.recomendedd == true && game.public == true) {
         gameImgRecomended.innerHTML +=`
         <img class="img-fluid reco-img" src="${game.img}" alt="imagen de ${game.gamename}">
        `
@@ -180,7 +180,7 @@ games.map((game) => {
 })
 
 games.map((game) => {
-    if (game.recomendedd == true) {
+    if (game.recomendedd == true && game.public == true) {
         gameDescRecomended.innerHTML +=`
         <h3>${game.gamename}</h3>
         <p>${game.description}</p>

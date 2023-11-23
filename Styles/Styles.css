@@ -38,13 +38,27 @@
 }
 
 .shoot-img {
-    height: 300px;
-    width: 600px;
+    height: 250px;
+    width: 430px;
 }
 
 .carousel-shoot {
-    height: 300px;
-    width: 600px;
+    height: 250px;
+    width: 430px;
+}
+
+@media (max-width: 450px) {
+    
+    .shoot-img {
+        height: 250px;
+        width: 350px;
+    }
+    
+    .carousel-shoot {
+        height: 250px;
+        width: 350px;
+    }
+
 }
 
 
