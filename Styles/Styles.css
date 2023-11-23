@@ -37,8 +37,19 @@
     color: white;
 }
 
+.shoot-img {
+    height: 300px;
+    width: 600px;
+}
 
- /* body { 
+
+.carousel-shoot {
+    height: 300px;
+    width: 600px;
+}
+
+
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,3 +57,11 @@
     background: url(../Assets/img/GTA\ V.jpg)no-repeat;
     background-size: cover;
 } */
+
+body {
+    background-image: url(../Assets/img/bgimg.avif);
+}
+
+h2 {
+    color: blanchedalmond;
+}
