@@ -1,0 +1,30 @@
+body {
+    height: 100vh;
+    background-image: url(../Assets/img/Valo\ found.jpg);
+    background-size: cover;
+}
+
+.form-lg {
+    margin-top: 300px !important;
+    padding-top: 40px;
+    width: 300px;
+    height: 300px;
+    border-radius: 2%;
+    background-color: white;
+}
+
+.letter-color {
+    color: black;
+}
+
+@media (min-width:400px) {
+    .form-bg {
+        padding-top: 10px;
+    }
+}
+
+@media (min-width:1080px) {
+    .form-bg {
+        padding-top: 60px;
+    }
+}
