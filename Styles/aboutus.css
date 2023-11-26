@@ -14,13 +14,16 @@
 }
 
 .card{
-  background-color: #420782c8;
+  background-color: var(--color-5);
   width: 300px; 
-  
 }
 .img-persona{
     height: 275px;
 }
 .list-group{
     list-style: none;
+}
+
+main {
+    min-height: 80vh;
 }

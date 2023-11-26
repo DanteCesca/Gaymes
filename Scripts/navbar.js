@@ -7,7 +7,7 @@ let urlicons;
 
 
 
-if (window.location.href == 'http://127.0.0.1:5500/proyectoSegundoModulo/index.html') {
+if (window.location.href == 'http://127.0.0.1:5501/index.html') {
   urlHome = './index.html'
   urlLogin = './pages/login.html'
   urladmin = './pages/admin.html'

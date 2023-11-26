@@ -14,7 +14,7 @@ const presentacion = [{
     nombre: "Dante", 
     apellido: "Cesca",
     edad: 29,
-    hobby: "me gustan las mascotas en especial los perros, pasarla bien con amigos y fanatico de river",  
+    hobby: "me gustan las mascotas en especial los perros, pasarla bien con amigos y veneno de CASM",  
     imgcara: "../Assets/img/dante.enc"
 },
 {
@@ -32,18 +32,18 @@ hobby: "Me gusta viajar y conocer nuevos lugares, hacer amigos, leer libros y es
 imgcara: "../Assets/img/sergio.jpeg"
 }
 ]
-const container = document.getElementById('aboutusContainer');
+const containerAboutUs = document.getElementById('aboutusContainer');
  
 presentacion.map(persona => {
-    container.innerHTML += `
+  containerAboutUs.innerHTML += `
       <div class="card my-3 px-0">
-          <img src="${persona.imgcara}" class="card-img-top img-fluid img-persona" alt="...">
+          <img src="${persona.imgcara}" class="card-img-top img-fluid img-persona" alt="foto de ${persona.nombre}">
           <div class="card-body">
-            <h5 class="card-title">${persona.nombre}  ${persona.apellido}</h5>
-            <ul class="list-group list-group-flush">
+            <h5 class="card-title text-light">${persona.nombre}  ${persona.apellido}</h5>
+            <ul class="list-group list-group-flush text-light">
              <li> Edad: ${persona.edad}</li>
             </ul>
-            <p class="card-text">${persona.hobby}</p>
+            <p class="card-text text-light">${persona.hobby}</p>
           </div>
       </div>
     `;

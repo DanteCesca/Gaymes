@@ -5,19 +5,22 @@ let urlInstagram
 let urlTwitter
 let urlConocenos
 let urlConsultas
+let mainIcon
 
-if (window.location.href == '') {
-urlFacebook = './pages/error404.html'
-urlInstagram = './pages/error404.html'
-urlTwitter = './pages/error404.html'
-urlConocenos = './pages/conocenos.html'
-urlConsultas = './pages/contact.html'
+if (window.location.href == 'http://127.0.0.1:5501/index.html') {
+urlFacebook = './Pages/error404.html'
+urlInstagram = './Pages/error404.html'
+urlTwitter = './Pages/error404.html'
+urlConocenos = './Pages/aboutus.html'
+urlConsultas = './Pages/contact.html'
+mainIcon = './Assets/icons/Rolling_Games (1).png'
 } else {
     urlFacebook = './error404.html'
     urlInstagram = './error404.html'
     urlTwitter = './error404.html'
-    urlConocenos = './conocenos.html'
+    urlConocenos = './aboutus.html'
     urlConsultas = './contact.html'
+    mainIcon = '../Assets/icons/Rolling_Games (1).png'
 }
 
 footer.innerHTML = `
@@ -39,7 +42,7 @@ footer.innerHTML = `
     </div>
     <div class="col-3">
         <div class="d-flex justify-content-center mb-2">
-            <a href=""><img class="aiconsfooter" src="./Assets/icons/Rolling_Games (1).png" alt=""></a>
+            <img class="aiconsfooter" src="${mainIcon}" alt="icono principal de rolling games">
         </div>
         <div class="d-flex">
             <p>©</p><p>RollingGames todos los derechos estan reservados</p>
@@ -47,10 +50,10 @@ footer.innerHTML = `
     </div>
     <div class="col-3">
         <div>
-            <a href="./pages/conocenos.html"><h4 class="text-end pe-3 mt-3">Conocenos</h4></a>
+            <a href="${urlConocenos}"><h4 class="text-end pe-3 mt-3">Conocenos</h4></a>
         </div>
         <div>
-            <a href="http://"><h4 class="text-end pe-3 mt-5">Consultas?</h4></a>
+            <a href="${urlConsultas}"><h4 class="text-end pe-3 mt-5">Consultas?</h4></a>
         </div>
     </div>
 </div>
