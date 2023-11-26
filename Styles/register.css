@@ -1,9 +1,6 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    background: url(../Assets/img/Lol\ found.jpg)no-repeat;
+    background: url(../Assets/img/lol-found.jpg);
     background-size: cover;
 }
 
@@ -13,6 +10,7 @@ body {
     height: 780px;
     border-radius: 2%;
     background-color: white;
+    margin-top: 50px;
 }
 
 .letter-color {

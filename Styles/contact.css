@@ -1,0 +1,25 @@
+body {
+    height: 100vh;
+    background-image: url(../Assets/img/contact-found.jpg);
+    background-size: cover;
+}
+
+.form-bg {
+    margin-top: 300px !important;
+}
+
+.input-size {
+    width: 350px;
+}
+
+.box-direc  {
+    margin-top: 40px !important;
+}   
+
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

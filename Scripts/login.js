@@ -1,8 +1,5 @@
 class User {
-    constructor(name, lastName, userName, email, password) {
-        this.name = name,
-        this.lastName = lastName,
-        this.userName = userName,
+    constructor(email, password) {
         this.email = email,
         this.password = password
     }
@@ -13,8 +10,6 @@ const password = document.getElementById('password');
 
 const user = new User();
 
-const submitBtn = document.getElementById('submitBtn');
-const labelValidationEmail = document.getElementById('validationLabelEmail');
 const labelValidationPassword = document.getElementById('validationLabelPassword')
 
 const validateFields = () => {
@@ -34,6 +29,8 @@ const handleSubmit = (event) => {
 
     if (foundUser != null && foundUser.password === password.value) {
         alert('Ingresaste con exito :)')
+        event.target.style.border = '2px solid green'
+        user.email = event.target.value.toLowerCase()
         localStorage.setItem('authUser', JSON.stringify(foundUser))
     } else {
         validationLabelPassword.className = 'text-danger d-inline'
@@ -41,11 +38,4 @@ const handleSubmit = (event) => {
         event.target.style.border = '2px solid red'
     }
 
-    const validation = validateFields();
-
-    if (validation) {
-        submitBtn.removeAttribute('disabled')
-    } else {
-        submitBtn.setAttribute('disabled', 'true')
-    }
 }
