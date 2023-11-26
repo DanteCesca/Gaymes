@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Games">
+    <meta name="author" content="Dante Cesca, Luciano Llanos, Santiago Coronel, Sergio Diaz, Juan Yapur">
+    <link rel="icon" href="../Assets/icons/icon-2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../Styles/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Administrador</title>
+</head>
+<body>
+    <header></header>
+    <main class="justify-content-center d-flex mt-5">
+      <div class="main-container w-50 rounded py-2 table-responsive">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end me-2">
+          <a href="" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Juego</a>
+        </div>
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega Un Juego</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body rounded-bottom">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="mb-3">
+                            <label for="gameName" class="form-label">Nombre del Juego</label>
+                            <input type="text" class="form-control" id="gameName" maxlength="30" minlength="2" required onchange="handleChange(event)">
+                            <label class="form-label" for="gameCategory">Categoria</label>
+                            <select class="form-select" id="gameCategory" required onchange="handleChange(event)">
+                              <option selected>Seleccione una Categoria</option>
+                              <option value="Estrategia">Estrategia</option>
+                              <option value="Disparos">Disparos</option>
+                              <option value="Deportes">Deportes</option>
+                              <option value="Terror">Terror</option>
+                            </select>
+                            <label for="gameImg" class="form-label">Url de imagen</label>
+                            <input type="text" class="form-control" id="gameImg" minlength="14" maxlength="300" required onchange="handleChange(event)">
+                            <label for="gameVid" class="form-label">Url de video</label>
+                            <input type="text" class="form-control" id="gameVid" minlength="14" maxlength="300" required onchange="handleChange(event)">
+                            <label for="gameDate" class="form-label">Año de lanzamiento</label>
+                            <input type="number" class="form-control" id="gameDate" minlength="4" maxlength="4" required onchange="handleChange(event)">
+                            <label for="gamePrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="gamePrice" minlength="1" maxlength="14" required onchange="handleChange(event)">
+                            <label for="gameAuthor" class="form-label">Nombre del Autor</label>
+                            <input type="text" class="form-control" id="gameAuthor" minlength="2" maxlength="32" required onchange="handleChange(event)">
+                            <label for="gameCompany" class="form-label">Nombre de la Compania</label>
+                            <input type="text" class="form-control" id="gameCompany" minlength="1" maxlength="70" required onchange="handleChange(event)">
+                            <label for="gameDescription">Descripcion del Juego</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Escribi la descricpion del juego" id="gameDescription" maxlength="200" minlength="20" required onchange="handleChange(event)"></textarea>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="color-table text-white">Codigo</th>
+                <th scope="col" class="color-table text-white">Nombre</th>
+                <th scope="col" class="color-table text-white">Categoria</th>
+                <th scope="col" class="color-table text-white">Descripcion</th>
+                <th scope="col" class="color-table text-white">Publicado</th>
+                <th scope="col" class="color-table text-white">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tableContainer">
+            </tbody>
+        </table>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="../Scripts/admin.js"></script>
+</body>
+</html>
