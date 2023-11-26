@@ -199,7 +199,6 @@ const handleChange = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault();
   const saveGame = JSON.parse(localStorage.getItem('storagegame'));
-  console.log(saveGame)
   if (saveGame) {
     saveGame.push(newGame);
     const jsonGame = JSON.stringify(saveGame)
@@ -231,7 +230,7 @@ games.map((game, index) => {
     </td>
     <td class="color-table text-white">
      <div class="d-flex gap-2">
-      <a href="#" class="btn btn-outline-primary" role="button"><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#configModal${index}"></i></a>
+      <a href="#" class="btn btn-outline-primary disabled" role="button"><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#configModal${index}"></i></a>
       <a class="btn btn-outline-primary" href="#" role="button" onclick="deleteGame(${index})"><i class="bi bi-trash"></i></a>
       <div class="form-check p-0 m-0">
        <input type="radio" class="btn-check" name="options" id="option1${index}" autocomplete="off" onchange="clickRecomended(${index}, event)" ${game.recomendedd ? 'checked' : ''}>
@@ -248,10 +247,10 @@ games.map((game, index) => {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body rounded-bottom">
-              <form onsubmit="configSubmit()">
+              <form">
                   <div class="mb-3">
                       <label for="configGameName${index}" class="form-label">Cambiar Nombre del Juego</label>
-                      <input type="text" class="form-control" id="configGameName${index}" maxlength="30" minlength="2" required onchange="configGamesVerify(event)" value="${game.gamename}">
+                      <input type="text" class="form-control" id="configGameName${index}" maxlength="30" minlength="2" required onchange="configGamesVerify(event)" value="${game.  gamename}">
                       <label class="form-label" for="configGameCategory${index}">Cambia la Categoria</label>
                       <select class="form-select" id="configGameCategory${index}" required onchange="configGamesVerify(event)" value="${game.category}">
                         <option selected>Seleccione una Categoria</option>
@@ -316,51 +315,4 @@ const deleteGame = (index) => {
     const jsonGame = JSON.stringify(saveGame)
     localStorage.setItem('storagegame', jsonGame)
     window.location.reload()
-}
-
-const configGamesVerify = (event) => {
-
-  switch (event.target.id) {
-    case `configGameName${index}`:
-      if (!regexGameName.test(event.target.value)) {
-        alert("El nombre del juego no debe contener caracteres especiales");
-      } else {
-        games[parseInt(`${index}`)].gamename = event.target.value;
-      }
-      break;
-    case `configGameCategory${index}`:
-      if (event.target.value === "") {
-          alert("Selecciona una categoria")
-      } else {
-        games[`${index}`].category = event.target.value;
-      }
-      break;
-    case `configGameImg${index}`:
-      if (!regexGameImg.test(event.target.value)) {
-        alert("Ingresa una Url valida");
-      } else {
-        games[`${index}`].img = event.target.value;
-      }
-    case `configGameVid${index}`:
-      if (!regexGameVid.test(event.target.value)) {
-        alert("Ingresa una Url valida");
-      } else {
-        games[`${index}`].urlvideo = event.target.value;
-      }
-      break;
-    case `configGameDescription${index}`:
-      if (!regexGametext.test(event.target.value)) {
-        alert("Ingresa una descripcion");
-      } else {
-        games[`${index}`].description = event.target.value;
-      }
-      break;
-  }
-}
-
-const configSubmit = () => {
-  const saveGame = JSON.parse(localStorage.getItem('storagegame')) || games;
-  const jsonGame = JSON.stringify(saveGame)
-  localStorage.setItem('storagegame', jsonGame)
-  window.location.reload()
 }
