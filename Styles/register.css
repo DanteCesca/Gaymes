@@ -13,11 +13,8 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    background: url(../Assets/img/Lol\ found.jpg)no-repeat;
+    background: url(../Assets/img/lol-found.jpg);
     background-size: cover;
 }
 
@@ -26,7 +23,12 @@ body {
     width: 500px;
     height: 780px;
     border-radius: 2%;
+<<<<<<< HEAD
     background-color: var(--color-1-2);
+=======
+    background-color: white;
+    margin-top: 50px;
+>>>>>>> 50ef1c23ec424ca9dd99514d4c54f2ec40aa76fc
 }
 
 .letter-color {
