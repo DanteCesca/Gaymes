@@ -1,12 +1,14 @@
-class User {
+class user {
     constructor(email, password, comment) {
         this.email = email,
         this.password = password
+        this.comment = comment
     }
 }
 
 const email = document.getElementById('Email');
 const password = document.getElementById('Password');
+const comment = document.getElementById('Comment');
 
 const submitBtn = document.getElementById('submitBtn');
 
@@ -37,4 +39,18 @@ const handleSubmit = (event) => {
         event.target.style.border = '2px solid red'
     }
 
+    const saveComments = JSON.parse(localStorage.getItem('comments'));
+
+  if (saveComments) {
+    saveComments.push(comment.value);
+    console.log(comment.value)
+    const jsonComments = JSON.stringify(saveComments)
+    localStorage.setItem('comments',jsonComments)
+  } else {
+    let comments = [];
+    comments.push(comment.value);
+    const jsonComments = JSON.stringify(comments)
+    localStorage.setItem('comments',jsonComments)
+
+  }
 }
