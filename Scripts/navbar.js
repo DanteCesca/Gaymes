@@ -1,4 +1,5 @@
 const container = document.getElementById('navContainer');
+const authUser = JSON.parse(localStorage.getItem('authUser'));
 
 let urlHome;
 let urlLogin;
@@ -20,10 +21,8 @@ if (window.location.href == 'http://127.0.0.1:5501/index.html') {
 }
 
 
-const authUser = JSON.parse(localStorage.getItem('authUser'));
-
 container.innerHTML = `
-  <nav class="navbar navbar-expand-lg" 
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand " href=${urlHome}><img src="${urlicons}" alt="icono principal" class="navbaricons"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"  aria-label="Toggle navigation">
