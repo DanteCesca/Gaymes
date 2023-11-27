@@ -6,7 +6,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/call-of-duty-warzone.jpg",
-      urlvideo : "https://www.youtube.com/watch?v=qiR3AAnwSmo",
+      urlvideo : "https://www.youtube.com/embed/qiR3AAnwSmo?si=6x9bNmwLAcPE4mrT",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -19,7 +19,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/residenevil4.webp",
-      urlvideo : "https://www.youtube.com/watch?v=cMzJv0LOJYo",
+      urlvideo : "https://www.youtube.com/embed/cMzJv0LOJYo?si=HSNyawzRB7TbT4W2",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -32,7 +32,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/fifa-23.png",
-      urlvideo : "https://www.youtube.com/watch?v=zMyeAFzCTM0",
+      urlvideo : "https://www.youtube.com/embed/zMyeAFzCTM0?si=4Dk5JwMikCMDAvCK",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -45,7 +45,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/nba2k24.jpg",
-      urlvideo : "https://www.youtube.com/watch?v=OJS1BVniz5c",
+      urlvideo : "https://www.youtube.com/embed/OJS1BVniz5c?si=RIonReaRy91FVg_V",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -58,7 +58,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : true,
       img : "./Assets/img/silenthill2.jpg",
-      urlvideo : "https://www.youtube.com/watch?v=Bia8hhHszSw",
+      urlvideo : "https://www.youtube.com/embed/Bia8hhHszSw?si=s4FNl2F7J8qM1Pex",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -71,7 +71,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/gta5.jpg",
-      urlvideo : "https://www.youtube.com/watch?v=QkkoHAzjnUs",
+      urlvideo : "https://www.youtube.com/embed/QkkoHAzjnUs?si=RlppYqeDM1wo_rLy",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -84,7 +84,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/Assassin-creed-mirage.webp",
-      urlvideo : "https://www.youtube.com/watch?v=k-BGWNNvvas",
+      urlvideo : "https://www.youtube.com/embed/k-BGWNNvvas?si=a9hsBjoOBzClnLnB",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -97,7 +97,7 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
       public : true,
       recomendedd : false,
       img : "./Assets/img/god-of-war-ragnarok.webp",
-      urlvideo : "https://www.youtube.com/watch?v=vtFhDrMIZjE",
+      urlvideo : "https://www.youtube.com/embed/vtFhDrMIZjE?si=LOTvey-NoEA_zLls",
       date:"2017",
       author:"pepehonguito",
       company:"Aceituna Negra",
@@ -105,13 +105,11 @@ let games = JSON.parse(localStorage.getItem('storagegame')) || [
   },
 ]
 
-console.log(games)
-
 let regexGameName = /^[a-zA-Z0-9\s]+$/u;
-let regexGameImg = /\.(jpg|jpeg|png|gif|bmp)$/i;
 let regexGameVid = /^(https?:\/\/)?(www\.)?(youtube\.com\/(embed\/|v\/|watch\?v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})$/;
 let regexGametext = /^[a-zA-Z0-9\s.,!?(){}[\]<>:'"\\/;@#$%^&*_+=-]+$/;
 let regexGamenumber = /^\d+$/;
+let regexGameimg = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$i/
 
 const newGame = {
   gamename : "",
@@ -134,62 +132,80 @@ const handleChange = (event) => {
       case 'gameName':
         if (!regexGameName.test(event.target.value)) {
           alert("El nombre del juego no debe contener caracteres especiales");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.gamename = event.target.value;
         }
         break;
       case 'gameCategory':
-        if (event.target.value === "") {
+        if (event.target.value === "Seleccione una Categoria") {
             alert("Selecciona una categoria")
+            event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.category = event.target.value;
         }
         break;
       case 'gameImg':
-        if (!regexGameImg.test(event.target.value)) {
-          alert("Ingresa una Url valida");
+        if (regexGameimg.test(event.target.value)) {
+          alert("Ingresa una url de imagen valida")
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.img = event.target.value;
         }
       case 'gameVid':
         if (!regexGameVid.test(event.target.value)) {
           alert("Ingresa una Url valida");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.urlvideo = event.target.value;
         }
         break;
       case 'gameDescription':
         if (!regexGametext.test(event.target.value)) {
           alert("Ingresa una descripcion");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.description = event.target.value;
         }
         break;
       case 'gameDate':
         if (!regexGamenumber.test(event.target.value)) {
           alert("Ingresa el año de lanzamiento del juego");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.date = event.target.value;
         }
         break;
       case 'gameAuthor':
         if (!regexGameName.test(event.target.value)) {
           alert("Ingresa el nombre del autor del juego");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.author = event.target.value;
         }
         break;
       case 'gameCompany':
         if (!regexGameName.test(event.target.value)) {
           alert("Ingresa el nombre de la compania del juego");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.company = event.target.value;
         }
         break;
       case 'gamePrice':
         if (!regexGamenumber.test(event.target.value)) {
           alert("ponele un precio al juego");
+          event.target.style.border = '2px solid red'
         } else {
+          event.target.style.border = '2px solid green'
           newGame.price = event.target.value;
         }
         break;
@@ -219,7 +235,7 @@ games.map((game, index) => {
     <tr><th scope="row" class="color-table text-white">${index}</th>
     <td class="color-table text-white">${game.gamename}</td>
     <td class="color-table text-white">${game.category}</td>
-    <td class="color-table text-white table-description">${game.description}</td>
+    <td class="color-table text-white table-description text-wrap">${game.description}</td>
     <td class="color-table text-white">
      <div class="form-check">
      <input class="form-check-input" type="checkbox" value="" onchange="handleClick(${index}, event)" id="checkPublick${index}" ${game.public ? 'checked' : ''}>

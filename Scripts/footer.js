@@ -30,14 +30,14 @@ footer.innerHTML = `
         <div>
             <h4>Redes Sociales</h4> 
             <div class="iconos-redes d-flex gap-3"> 
-              <a href="./pages/error404.html"><i class="bi bi-facebook footer-icons"></i></a>
-              <a href="./pages/error404.html" ><i class="bi bi-instagram footer-icons"></i></a>
-              <a href="./pages/error404.html"><i class="bi bi-twitter footer-icons"></i></a>
+              <a href="${urlFacebook}"><i class="bi bi-facebook footer-icons"></i></a>
+              <a href="${urlInstagram}" ><i class="bi bi-instagram footer-icons"></i></a>
+              <a href="${urlTwitter}"><i class="bi bi-twitter footer-icons"></i></a>
             </div>
         </div>
         <div class="pb-2">
             <h4>Aplicacion</h4>
-            <a href=""><i class="bi bi-google-play footer-icons"></i></a>
+            <a href="${urlTwitter}"><i class="bi bi-google-play footer-icons"></i></a>
         </div>
     </div>
     <div class="col-3">
@@ -50,10 +50,10 @@ footer.innerHTML = `
     </div>
     <div class="col-3">
         <div>
-            <a href="${urlConocenos}"><h4 class="text-end pe-3 mt-3">Conocenos</h4></a>
+            <a href="${urlConocenos}"><h5 class="text-end pe-3 mt-3">Conocenos</h4></a>
         </div>
         <div>
-            <a href="${urlConsultas}"><h4 class="text-end pe-3 mt-5">Consultas?</h4></a>
+            <a href="${urlConsultas}"><h5 class="text-end pe-3 mt-5">Consultas?</h4></a>
         </div>
     </div>
 </div>

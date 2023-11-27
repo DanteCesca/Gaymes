@@ -137,7 +137,7 @@ games.map((game) => {
         <p>${game.description}</p>
         <div class="d-grid gap-4 d-md-flex justify-content-md-end">
             <h3>$${game.price}</h3>
-            <a class="btn btn-outline-primary me-md-2" href="./Pages/game.html" role="button">Agregar al Carro</a>
+            <a class="btn btn-danger me-md-2" href="./error404.html" role="button">Agregar al Carro</a>
         </div>
        `
     }

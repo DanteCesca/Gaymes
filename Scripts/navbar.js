@@ -52,13 +52,13 @@ const loginLink = document.getElementById('loginLink');
 const registerLink = document.getElementById('registerLink');
 const logoutLink = document.getElementById('logOutLink');
 
-// if (!authUser && window.location.href == 'http://127.0.0.1:5500/proyectoSegundoModulo/index.html') {
-//   window.location.href = './Pages/login.html'
-// } else if (!authUser) {
-//   window.location.href = '../Pages/login.html'
-// } else {
-//   logoutLink.className = 'nav-link text-nav'
-// }
+if (!authUser && window.location.href == 'http://127.0.0.1:5501/index.html') {
+  window.location.href = './Pages/login.html'
+} else if (!authUser) {
+  window.location.href = '../Pages/login.html'
+} else {
+  logoutLink.className = 'nav-link text-nav'
+}
 
 const logout = () => {
   localStorage.removeItem('authUser')

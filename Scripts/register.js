@@ -118,10 +118,12 @@ const handleSubmit = (event) => {
     saveUsers.push(user);
     const jsonUsers = JSON.stringify(saveUsers)
     localStorage.setItem('users,jsonUsers')
+    window.location.href = './login.html'
   } else {
     let users = [];
     users.push(user);
     const jsonUsers = JSON.stringify(users)
     localStorage.setItem('users',jsonUsers)
+    window.location.href = './login.html'
   }
 }

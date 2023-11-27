@@ -35,6 +35,7 @@ const handleSubmit = (event) => {
     if (foundUser != null && foundUser.password === password.value) {
         alert('Ingresaste con exito :)')
         localStorage.setItem('authUser', JSON.stringify(foundUser))
+        window.location.href = '../index.html'
     } else {
         validationLabelPassword.className = 'text-danger d-inline'
         user.password = '';
