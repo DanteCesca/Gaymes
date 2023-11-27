@@ -1,0 +1,36 @@
+:root {
+    --color-elements : #6729995e;
+    --color-table : #7937ab80;
+    --color-modal : #672999;
+    --color-modal2 : #7937ab; 
+}
+
+body {
+    background-image: url(../Assets/Img/bgimg.avif);
+    max-width: 100vw;
+}
+
+.main-container {
+    background-color: var(--color-elements);
+}
+
+.color-table {
+    background-color: var(--color-table) !important;
+}
+
+.modal-header {
+    background-color: var(--color-modal);
+}
+
+.modal-body {
+    background-color: var(--color-modal2);
+}
+
+.modal-footer {
+    background-color: var(--color-modal);
+}
+
+.table-description {
+    max-width: 300px !important;
+    min-width: 200px !important;
+}
