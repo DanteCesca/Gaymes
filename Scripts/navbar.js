@@ -7,7 +7,7 @@ let urlicons;
 
 
 
-if (window.location.href == 'http://127.0.0.1:5501/index.html') {
+if (window.location.href == 'https://therollinggames.netlify.app') {
   urlHome = './index.html'
   urlLogin = './pages/login.html'
   urladmin = './pages/admin.html'
