@@ -28,9 +28,7 @@ const handleSubmit = (event) => {
     const foundUser = arrayUsers.find(user => user.email === email.value);
 
     if (foundUser != null && foundUser.password === password.value) {
-        alert('Ingresaste con exito :)')
         event.target.style.border = '2px solid green'
-        user.email = event.target.value.toLowerCase()
         localStorage.setItem('authUser', JSON.stringify(foundUser))
         window.location.href = '../index.html'
     } else {

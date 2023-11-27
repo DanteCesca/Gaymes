@@ -34,7 +34,7 @@ const validateFields = () => {
     const validationSuccesfull = isNameValid && isLastNameValid && isEmailValid && isUserNameValid && isPasswordValid && isRepeatPasswordValid;
   
     return validationSuccesfull;
-  }
+}
 
 const handleChange = (event) => {
 
@@ -49,7 +49,7 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid green'
             user.name = event.target.value.toLowerCase();
           }
-          break;
+        break;
         case 'lastName':
           if (!regexName.test(event.target.value)) {
             validationLabellastName.className = 'text-danger d-inline'
@@ -59,7 +59,7 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid green'
             user.lastName = event.target.value.toLowerCase();
           }
-          break
+        break
           case 'userName':
           if (!regexUsername.test(event.target.value)) {
             validationLabeluserName.className = 'text-danger d-inline'
@@ -69,7 +69,7 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid green'
             user.userName = event.target.value.toLowerCase()
           }
-          break
+        break
         case 'email':
           if (!regexEmail.test(event.target.value)) {
             validationLabelEmail.className = 'text-danger d-inline'
@@ -77,9 +77,9 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid red'
           } else {
             event.target.style.border = '2px solid green'
-            user.email = event.target.value.toLowerCase()
+            user.email = event.target.value
           }
-          break
+        break
         case 'password':
           if (!regexPass.test(event.target.value)) {
             validationLabelPassword.className = 'text-danger d-inline'
@@ -89,7 +89,7 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid green'
             user.password = event.target.value
           }
-          break
+        break
         case 'repeatPassword':
           if (user.password !== event.target.value) {
             validationLabelrepeatPassword.className = 'text-danger d-inline'
@@ -99,7 +99,7 @@ const handleChange = (event) => {
             event.target.style.border = '2px solid green'
             user.repeatPassword = event.target.value
           }
-          break
+        break
     }
 
     const validation = validateFields();
@@ -112,6 +112,7 @@ const handleChange = (event) => {
 }
 
 const handleSubmit = (event) => {
+  event.preventDefault();
   const saveUsers = JSON.parse(localStorage.getItem('users'));
   if (saveUsers) {
     saveUsers.push(user);
@@ -122,7 +123,7 @@ const handleSubmit = (event) => {
     let users = [];
     users.push(user);
     const jsonUsers = JSON.stringify(users)
-    localStorage.setItem('users',jsonUsers)
+    localStorage.setItem('users', jsonUsers)
     window.location.href = './login.html'
   }
 }

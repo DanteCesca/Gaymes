@@ -185,7 +185,7 @@ games.map((game) => {
         <h3>${game.gamename}</h3>
         <p>${game.description}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a class="btn btn-outline-primary me-md-2" href="./Pages/game.html" role="button">Ver Mas</a>
+            <a class="btn btn-danger me-md-2" href="./Pages/game.html" role="button">Ver Mas</a>
         </div>
        `
     }

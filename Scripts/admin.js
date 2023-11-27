@@ -247,10 +247,10 @@ games.map((game, index) => {
     <td class="color-table text-white">
      <div class="d-flex gap-2">
       <a href="#" class="btn btn-outline-primary disabled" role="button"><i class="bi bi-pencil" data-bs-toggle="modal" data-bs-target="#configModal${index}"></i></a>
-      <a class="btn btn-outline-primary" href="#" role="button" onclick="deleteGame(${index})"><i class="bi bi-trash"></i></a>
+      <a class="btn btn-outline-danger" href="#" role="button" onclick="deleteGame(${index})"><i class="bi bi-trash"></i></a>
       <div class="form-check p-0 m-0">
        <input type="radio" class="btn-check" name="options" id="option1${index}" autocomplete="off" onchange="clickRecomended(${index}, event)" ${game.recomendedd ? 'checked' : ''}>
-        <label class="btn btn-outline-primary" for="option1${index}"><i class="bi bi-star-fill"></i></label>
+        <label class="btn btn-outline-warning" for="option1${index}"><i class="bi bi-star-fill"></i></label>
       </div>
      </div>
     </td>
